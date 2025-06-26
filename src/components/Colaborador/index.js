@@ -1,4 +1,3 @@
-import Background from 'three/src/renderers/common/Background.js'
 import './Colaborador.css'
 
 const Colaborador = (props) => {
