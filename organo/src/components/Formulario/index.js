@@ -1,8 +1,8 @@
-import './Formulario.css'
-import CampoTexto from "../CampoTexto"
-import ListaSuspensa from '../ListaSuspenda'
-import Botao from '../Botao'
 import { useState } from 'react'
+import Botao from '../Botao'
+import CampoTexto from '../CampoTexto'
+import './Formulario.css'
+import ListaSuspensa from '../ListaSuspensa'
 
 const Formulario = (props) => {
 
@@ -11,24 +11,18 @@ const Formulario = (props) => {
     const [imagem, setImagem] = useState('')
     const [time, setTime] = useState('')
     
-    const times = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'UX e Design',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
-
     const aoSalvar = (evento) => {
-         evento.preventDefault()
-         props.aoColaboradorCadastrado({
+        evento.preventDefault()
+        props.aoColaboradorCadastrado({
             nome,
             cargo,
             imagem,
             time
-         })
+        })
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('')
     }
     
     return(
@@ -59,7 +53,7 @@ const Formulario = (props) => {
                 <ListaSuspensa 
                     obrigatorio={true} 
                     label="Time" 
-                    itens={times} 
+                    itens={props.times} 
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
                 />
